@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "OSIRIS Translate",
+  "version": "1.0.0",
+  "description": "给 OSIRIS 学生信息系统加上多语言界面。内置荷兰语到英语、中文的常用词表，可一键切换，也支持自托管翻译接口兜底。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "OSIRIS Translate",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://osiris*.nl/*",
+        "*://*.osiris.nl/*",
+        "*://sis.eur.nl/*",
+        "*://*.eur.nl/*",
+        "*://student.osiris.han.nl/*",
+        "*://*.han.nl/*"
+      ],
+      "js": [
+        "src/dictionaries/en.js",
+        "src/dictionaries/zh.js",
+        "src/dictionaries/index.js",
+        "src/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://osiris*.nl/*",
+    "*://*.osiris.nl/*",
+    "*://sis.eur.nl/*",
+    "*://*.eur.nl/*",
+    "*://student.osiris.han.nl/*",
+    "*://*.han.nl/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "osiris-translate@users.noreply.github.com"
+    }
+  }
+}
