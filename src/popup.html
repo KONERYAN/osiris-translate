@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font: 13px/1.4 system-ui, -apple-system, sans-serif; width: 240px; margin: 0; padding: 14px; color: #1f2933; }
+    h1 { font-size: 14px; margin: 0 0 12px; }
+    .row { display: flex; align-items: center; justify-content: space-between; margin: 10px 0; }
+    select { padding: 4px 6px; border-radius: 6px; border: 1px solid #cbd5e1; }
+    label { cursor: pointer; }
+    .hint { color: #6b7280; font-size: 11px; margin: 10px 0 0; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; }
+    button { flex: 1; padding: 6px; cursor: pointer; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; }
+    button:hover { background: #eef2f7; }
+  </style>
+</head>
+<body>
+  <h1>OSIRIS Translate</h1>
+  <div class="row">
+    <label for="enabled">启用翻译</label>
+    <input type="checkbox" id="enabled">
+  </div>
+  <div class="row">
+    <label for="language">界面语言</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="zh">中文</option>
+    </select>
+  </div>
+  <div class="actions">
+    <button id="rescan">重新翻译</button>
+    <button id="options">设置</button>
+  </div>
+  <p class="hint">改动会立即在当前页面生效。</p>
+  <script src="popup.js"></script>
+</body>
+</html>
