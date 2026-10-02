@@ -15,3 +15,25 @@
 ```js
 'Punten': 'Points',  // en.js
 'Punten': '学分',    // zh.js
+```
+
+只要是 OSIRIS 界面里真实出现的文本就可以提，不要求覆盖整句。
+
+## 加新语言
+
+复制 `en.js`，改文件名（例如 `ja.js`），把 value 换成目标语言，并挂到 `self.__OSIRIS_DICTS__.ja`。
+`content.js` 会自动加载所有被注入的词典；想让它在弹窗下拉里出现，再给 `src/popup.html` 的 `<select>` 加一行即可。
+
+## 本地测试
+
+- Chrome / Edge：打开 `chrome://extensions`，开“开发者模式”，加载 `osiris-translate` 目录。
+- Firefox：打开 `about:debugging#/runtime/this-firefox`，临时载入附加组件，选 `manifest.json`。
+- 进任意 OSIRIS 站点，点扩展图标切换语言验证效果。
+
+## 提交
+
+- commit 信息写清楚改了什么，比如 `dict: add exam terms`、`feat: Japanese support`。
+- 不要把私钥、token 这类东西提交进来。
+
+提交前用 `node --check` 确认 JS 没有语法错误即可，这个项目没有构建步骤。
+
