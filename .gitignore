@@ -1,0 +1,20 @@
+```text
+# 打包 / 构建产物
+dist/
+build/
+*.zip
+
+# 密钥与本地配置
+*.pem
+.env
+secrets.json
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
